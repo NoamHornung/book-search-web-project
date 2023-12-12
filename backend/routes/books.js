@@ -6,7 +6,7 @@ const router = express.Router();
 
 const BASE_URL = "https://www.googleapis.com/books/v1/volumes";
 
-const API_KEY = "AIzaSyCKqjDto8L8Fp7TY4MPn4_Dg0_NiDttuA8";
+const API_KEY = process.env.API_KEY;
 
 router.use(cors());
 
