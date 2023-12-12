@@ -1,13 +1,13 @@
 # BookSearch Web App
 ## [The bookSearch web app](https://book-search-project-noam.netlify.app/)
-Welcome to BookSearch, a powerful and user-friendly web application that serves as a search engine for books. With the integration of the Google Books API, BookSearch allows users to effortlessly search for books, view detailed information, and manage their book collections. The application features both frontend and backend components, providing a seamless experience for book enthusiasts.
+Welcome to BookSearch Engine, a web application that allows users to search for books using the Google Books API. This application comes with a user-friendly frontend and a powerful backend, providing features such as book search, detailed book information, user accounts, and personalized book lists.
 
 ## Features:
 ### 1. Book Search
-Users can easily search for books by entering keywords, titles, and authors. The application queries the Google Books API to retrieve relevant information and presents the user with a list of search results.
+Users can easily search for books by entering keywords, titles, and authors. The application queries the Google Books API to retrieve relevant information and presents the user with a list of search results, that can be sorted by title, author, and release date.
 
 ### 2. Book Details
-Selecting a book from the search results reveals detailed information about the chosen title. Users can explore book covers, author details, descriptions, and other metadata provided by the Google Books API.
+Selecting a book from the search results provides more detailed information about the selected book. Information includes the book's title, author, description, and other relevant details.
 
 ### 3. User Authentication
 BookSearch offers user authentication, allowing users to create accounts, log in, and enjoy personalized features. User accounts ensure a secure and customizable experience for managing book lists.
