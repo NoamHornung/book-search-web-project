@@ -21,7 +21,7 @@ Users can keep track of books they intend to read by adding them to a personaliz
   - HTML, CSS, JavaScript
   - React.js for building the user interface
   - Axios for handling API requests
-  - React Router page routing
+  - React Router for page routing
 
 - ### Backend:
   - Node.js and Express.js for server-side development
