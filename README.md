@@ -44,7 +44,7 @@ git clone https://github.com/NoamHornung/book-search-web-project
 
 ```
 2. Add the JSON Web Token Secret:
-Create a .env file in the backend folder and and set your secret for JWT
+Create a .env file in the backend folder and and set your secret for JWT- Replace your-jwt-secret with your actual JWT Secret.
 ```bash
 SECRET=your-jwt-secret
 ```
@@ -54,27 +54,34 @@ Still in the .env file, add your MongoDB connection string. Replace your-mongodb
 MONGODB_URI="your-mongodb-connection-string"
 ```
 
-4. Install dependencies:
+4. Add the Google Books API key:
+Still in the .env file, add your Google Books API key string. Replace your-api-key with your actual Google Books API key.
+```bash
+API_KEY= "your-api-key"
+```
+   
+5. Install dependencies:
 ```bash
 npm install
 ```
-5. Navigate to the backend directory:
+6. Navigate to the backend directory:
 ```bash
 cd backend
 ```
 
-6. Run the backend application:
+7. Run the backend application:
 ```bash
 npm run devStart
 ```
-7. open a new terminal
-8. Navigate to the frontend directory:
+8. open a new terminal
+  
+9. Navigate to the frontend directory:
 ```bash
 cd frontend
 ```
 
-9. Run the frontend application:
+10. Run the frontend application:
 ```bash
 npm start
 ```
-10. Open your web browser and go to http://localhost:3000 to access the BookSearch web app.
+11. Open your web browser and go to http://localhost:3000 to access the BookSearch web app.
