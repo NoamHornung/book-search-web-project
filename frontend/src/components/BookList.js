@@ -15,6 +15,7 @@ const BookList = () => {
     searchQuery,
     selectedSort,
     setSelectedSort,
+    loading,
   } = useContext(BooksContext);
   const navigate = useNavigate();
 
@@ -42,47 +43,54 @@ const BookList = () => {
 
   return (
     <div>
-      {searchMade && ( // Only render the sort options if a search has been made
-        <div className="sort-options">
-          <select value={selectedSort} id="sort" onChange={handleSortChange}>
-            <option disabled value="Sort">
-              Sort
-            </option>
-            <option value="Newest">Newest</option>
-            <option value="Oldest">Oldest</option>
-            <option value="Title">Title</option>
-            <option value="Author">Author</option>
-          </select>
+      {searchMade &&
+        books.length !== 0 && ( // Only render the sort options if a search has been made
+          <div className="sort-options">
+            <select value={selectedSort} id="sort" onChange={handleSortChange}>
+              <option disabled value="Sort">
+                Sort
+              </option>
+              <option value="Newest">Newest</option>
+              <option value="Oldest">Oldest</option>
+              <option value="Title">Title</option>
+              <option value="Author">Author</option>
+            </select>
+          </div>
+        )}
+      {loading && searchMade ? (
+        <p>Loading...</p> // Render loading indicator while waiting for the search to complete
+      ) : (
+        <div className="book-list">
+          {books.length === 0 && searchMade ? ( //if no books are found, display a message
+            <p>No matching books found.</p>
+          ) : (
+            books.map((book) => (
+              <div key={book.id} className="book-card-container">
+                <button
+                  className="more-info"
+                  onClick={() => handleMoreInfoClick(book)}
+                >
+                  More Info
+                </button>
+                <img
+                  src={book.volumeInfo.imageLinks?.thumbnail || BackupImage}
+                  alt=""
+                />
+                <div className="description">
+                  <h2>{book.volumeInfo.title}</h2>
+                  <h3>Author: {book.volumeInfo.authors || "Unknown"}</h3>
+                  <p>
+                    published:{" "}
+                    {book.volumeInfo.publishedDate
+                      ? new Date(book.volumeInfo.publishedDate).getFullYear()
+                      : "Unknown"}
+                  </p>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       )}
-      <div className="book-list">
-        {books.map((book) => {
-          return (
-            <div key={book.id} className="book-card-container">
-              <button
-                className="more-info"
-                onClick={() => handleMoreInfoClick(book)}
-              >
-                More Info
-              </button>
-              <img
-                src={book.volumeInfo.imageLinks?.thumbnail || BackupImage}
-                alt=""
-              />
-              <div className="description">
-                <h2>{book.volumeInfo.title}</h2>
-                <h3>Author: {book.volumeInfo.authors || "Unknown"}</h3>
-                <p>
-                  published:{" "}
-                  {book.volumeInfo.publishedDate
-                    ? new Date(book.volumeInfo.publishedDate).getFullYear()
-                    : "Unknown"}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
     </div>
   );
 };

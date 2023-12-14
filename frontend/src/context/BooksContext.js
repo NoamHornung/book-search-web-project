@@ -8,16 +8,19 @@ const BooksContextProvider = ({ children }) => {
   const [searchMade, setSearchMade] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSort, setSelectedSort] = useState("Sort");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // a call to the backend to search for books based on the search query when the search is made
     const fetchBooks = async () => {
       try {
+        setLoading(true); // Set loading to true while the request is being made
         const response = await axios.get(
           `http://localhost:5000/books/search?q=${searchQuery}`
         );
         setBooks(response.data);
         console.log(response.data);
+        setLoading(false); // Set loading to false once the request is complete
       } catch (error) {
         console.error("Error searching for books:", error);
       }
@@ -39,6 +42,7 @@ const BooksContextProvider = ({ children }) => {
         setSearchQuery,
         selectedSort,
         setSelectedSort,
+        loading,
       }}
     >
       {children}
